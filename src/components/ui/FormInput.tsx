@@ -1,4 +1,5 @@
 import { TextField } from "@mui/material";
+import FormText from "./FormText";
 
 interface InputProps {
   name: string;
@@ -10,6 +11,7 @@ interface InputProps {
   rows?:number;
   fullWidth?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error: string;
 }
 
 const FormInput: React.FC<InputProps> = ({
@@ -21,9 +23,11 @@ const FormInput: React.FC<InputProps> = ({
   onChange,
   value,
   fullWidth = true,
+  error ="",
   ...rest
 }) => {
   return (
+    <div>
     <TextField
       variant="standard"
       fullWidth={fullWidth}
@@ -37,6 +41,10 @@ const FormInput: React.FC<InputProps> = ({
       style={{ paddingBottom: 10 }}
       {...rest}
     />
+     {error && (
+      <FormText text={error} variant={"subtitle2"} color={"error"}/>
+      )}
+    </div>
   );
 };
 

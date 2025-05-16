@@ -1,5 +1,6 @@
 import  { type FC } from "react";
 import { FormControl, Select, MenuItem, InputLabel, Box, type SelectChangeEvent } from "@mui/material";
+import FormText from "./FormText";
 
 interface option {
   label: string;
@@ -9,12 +10,14 @@ interface IFormSelectionProps {
   value: string;
   handleChange: (event:SelectChangeEvent) => void;
   options?: option[];
+  error:string;
 }
 
 const FormSelection: FC<IFormSelectionProps> = ({
   handleChange,
   value,
   options,
+  error
 }) => {
   // const [selectedItem, setSelectedItem] = useState<string>("");
 
@@ -38,6 +41,7 @@ return (
           })}
         </Select>
       </FormControl>
+      {error && <FormText text={error} variant={"subtitle2"} color={"error"}/>}
     </Box>
   );
 };

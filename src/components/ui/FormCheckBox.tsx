@@ -1,13 +1,15 @@
 import { Checkbox, FormControlLabel} from "@mui/material";
 import type { ReactNode } from "react";
+import FormText from "./FormText";
 
 interface checkboxProps{
     label : string,
     color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
     size?: 'small'| 'medium';
     icon?: ReactNode;
-    checked: boolean;
+    checked:  boolean | undefined;
     onChange : ( e : React.ChangeEvent<HTMLInputElement>) => void;
+    error: string;
 
 }
 
@@ -17,10 +19,14 @@ const FormCheckBox : React.FC<checkboxProps> = ({
     size ='medium',
     icon,
     checked,
-    onChange
+    onChange,
+    error
 
 }) => {
   return (
+    <div>
+
+    
     <FormControlLabel
       control={
         <Checkbox
@@ -33,6 +39,8 @@ const FormCheckBox : React.FC<checkboxProps> = ({
       }
       label={label}
     />
+    {error && <FormText text={error} variant={"subtitle2"} color={"error"}/>}
+    </div>
   )
 }
 

@@ -1,12 +1,8 @@
-
-import { Grid, Paper } from '@mui/material'
-import CustomForm from './common/CustomForm'
-import { registrationFormControl } from './config/form'
-
+import { Grid, Paper } from "@mui/material";
+import SalesForm from "./pages/salesOrder-form/SalesForm";
 
 function App() {
-  
-   const paperStyle = {
+  const paperStyle = {
     padding: 20,
     height: "auto",
     width: 500,
@@ -14,17 +10,20 @@ function App() {
   };
   return (
     <>
-     {/* <Login/> */}
+      {/* <Login/> */}
 
-     <Grid>
-      <Paper elevation={10} style={paperStyle}>
-        <CustomForm button='Submit' formControls={registrationFormControl}  />
-      </Paper>
-    </Grid>
-     
-     
+      <Grid>
+        <Paper elevation={10} style={paperStyle}>
+          <SalesForm/>
+        </Paper>
+      </Grid>
+      {/* <Grid>
+        <Paper elevation={10} style={paperStyle}>
+          <ServiceForm/>
+        </Paper>
+      </Grid> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

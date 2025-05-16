@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const formExample = [
+export const registerForm = [
   {
     name: "fullName",
     label: "Full Name",
@@ -96,72 +96,3 @@ export const formExample = [
     errorMessage: "You must accept the terms and conditions",
   },
 ];
-
-// export const registrationFormControl = [
-//   {
-//     name: "name",
-//     label: "Name",
-//     placeholder: "Enter first name",
-//     componentType: "input",
-//     type: "text" as const,
-//   },
-//   {
-//     name: "phoneNumber",
-//     label: "Phone Number",
-//     placeholder: "Enter phone number",
-//     componentType: "input",
-//     type: "number" as const,
-//   },
-//   {
-//     name: "emailAddress",
-//     label: "Email Id",
-//     placeholder: "Enter email",
-//     componentType: "input",
-//     type: "email" as const,
-//   },
-//   {
-//     name: "password",
-//     label: "Password",
-//     placeholder: "Enter password",
-//     componentType: "input",
-//     type: "password" as const,
-//   },
-//   {
-//     name: "gender",
-//     label: "Gender",
-//     componentType: "radio",
-//     options: [{ label: "Male", value:"Male" }, { label: "Female", value:"Female" }, { label: "Other", value:"Other" }],
-//   },
-//   {
-//     name: "birthdate",
-//     label: "Birthdate",
-//     placeholder: "Select birthdate",
-//     componentType: "date",
-//     defaultValue: new Date(),
-//   },
-//   {
-//   name : 'interest',
-//   label: 'Interest',
-//   componentType : 'select',
-//   options: [
-//     { label: 'Sports', value: 'sports' },
-//     { label: 'Music', value: 'music' },
-//     { label: 'Reading', value: 'reading' },
-//     { label: 'Travel', value: 'travel' },
-//     { label: 'Cooking', value: 'cooking' },
-//     { label: 'Technology', value: 'technology' }
-//   ],
-
-//   },
-//   {
-//     name: "address",
-//     label: "Address",
-//     placeholder: "Enter address",
-//     componentType: "textarea",
-//   },
-//   {
-//     name: "termsCondition",
-//     label: "Accept terms & condition",
-//     componentType: "checkbox",
-//   },
-// ];
