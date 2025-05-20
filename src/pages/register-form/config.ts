@@ -4,6 +4,7 @@ export const registerForm = [
     name: "fullName",
     label: "Full Name",
     componentType: "input",
+    type : "text",
     required: true,
     minLength: 3,
     errorMessage: "Please enter your full name (at least 3 characters)",
@@ -12,6 +13,7 @@ export const registerForm = [
     name: "email",
     label: "Email Address",
     componentType: "email",
+    type: "email",
     required: true,
     pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     errorMessage: "Please enter a valid email address",
@@ -20,6 +22,7 @@ export const registerForm = [
     name: "password",
     label: "Password",
     componentType: "password",
+    type:"password",
     required: true,
     minLength: 8,
     customValidator: (value: string) => {
@@ -31,6 +34,7 @@ export const registerForm = [
     name: "age",
     label: "Age",
     componentType: "number",
+    type:"number",
     required: true,
     customValidator: (value: any) => {
       const age = Number(value);
@@ -80,6 +84,7 @@ export const registerForm = [
     },
     errorMessage: "You must be at least 18 years old",
   },
+
   {
     name: "comments",
     label: "Additional Comments",

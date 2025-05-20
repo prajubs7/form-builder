@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import FormCheckBox from "../components/ui/FormCheckBox";
 import FormInput from "../components/ui/FormInput";
 import FormSelection from "../components/ui/FormSelection";
@@ -12,8 +13,24 @@ import type {
 } from "../types/formfields";
 import { validateField } from "./ValidateForm";
 import { Divider } from "@mui/material";
+import FormImage from "../components/ui/FormImage";
+import FormSearch from "../components/ui/FormSearch";
+
 
 const CustomForm: React.FC<CommonFormProps> = ({ formControls, button }) => {
+
+  // const initialFormState = formControls.reduce((acc, control) => {
+  //   acc[control.name] = "";
+  //   return acc;
+  // }, {} as Record <string, unknown>) ;
+
+  // const [formEntries, setFormEntries] = useState<Record<string, unknown>[]>([]);
+
+  // const [formErrors, setFormErrors] = useState<Record<string, unknown>[]>([]);
+
+
+  
+
   const [formData, setFormData] = useState<Record<string, unknown>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -61,6 +78,7 @@ const CustomForm: React.FC<CommonFormProps> = ({ formControls, button }) => {
 
     if (formIsValid) {
       console.log("Form submitted successfully:", formData);
+      
     } else {
       console.log("Form has errors, submission prevented");
     }
@@ -106,7 +124,7 @@ const CustomForm: React.FC<CommonFormProps> = ({ formControls, button }) => {
             }}
             value={(value as string) || ""}
             options={controlItem.options}
-            error= {error}
+            error={error}
           />
         );
 
@@ -122,7 +140,7 @@ const CustomForm: React.FC<CommonFormProps> = ({ formControls, button }) => {
                 [controlItem.name]: event.target.checked,
               });
             }}
-            error = {error}
+            error={error}
           />
         );
       case "radio":
@@ -175,13 +193,26 @@ const CustomForm: React.FC<CommonFormProps> = ({ formControls, button }) => {
                 [controlItem.name]: event.target.value,
               });
             }}
-            error = {error}
+            error={error}
           />
         );
-       case "section-heading":
+
+      case "image-upload":
+        return <FormImage />;
+      case "search":
         return (
-          <Divider>{controlItem.label}</Divider>
+          <FormSearch
+            name={controlItem.name}
+            label={controlItem.label}
+            onChange={(_event) =>
+              setFormData({
+                ...formData, [controlItem.name] : value
+              })
+            }
+          />
         );
+      case "section-heading":
+        return <Divider>{controlItem.label}</Divider>;
       default:
         return (
           <FormInput
@@ -195,8 +226,8 @@ const CustomForm: React.FC<CommonFormProps> = ({ formControls, button }) => {
                 ...formData,
                 [controlItem.name]: event.target.value,
               });
-            }} 
-            error={error}          
+            }}
+            error={error}
           />
         );
     }

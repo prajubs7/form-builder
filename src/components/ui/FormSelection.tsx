@@ -19,7 +19,7 @@ const FormSelection: FC<IFormSelectionProps> = ({
   options,
   error
 }) => {
-  // const [selectedItem, setSelectedItem] = useState<string>("");
+
 
 return (
     <Box>

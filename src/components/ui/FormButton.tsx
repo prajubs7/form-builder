@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 interface ButtonProps {
   text: string;
   fullWidth?: boolean;
-  type: "submit" | "reset";
+  type: "submit" | "reset" | 'button';
   color?: "primary" | "secondary" | "success" | "error" | "info" | "warning";
   size?: "small" | "medium" | "large";
   variant?: "contained" | "outlined" | "text";
